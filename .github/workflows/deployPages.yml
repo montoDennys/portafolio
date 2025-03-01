@@ -11,8 +11,8 @@ permissions:
 env:
   DEPLOY_BASE_URL: ${{vars.DEPLOY_BASE_URL}}
 concurrency:
-group: "pages"
-cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
