@@ -1,0 +1,43 @@
+.generarColumnas(@prefijo, @columnas, @iteracion : 1) when(@iteracion =< @columnas){
+    @selector-columna: ~'.col-@{prefijo}@{iteracion}';
+    @selector-offset: ~'.offset-@{prefijo}@{iteracion}';
+    @ancho: (100% / @columnas * @iteracion);
+    @{selector-columna}{ flex: 0 0 @ancho;}
+    @{selector-offset}{ margin-left: @ancho;}
+    .generarColumnas(@prefijo, @columnas, (@iteracion+1));
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    background-color: @bg-secondary;
+    color: @text-primary;
+    text-align: center;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex: 1 100%;
+        flex-wrap: wrap;
+
+        [class*='col-'] {
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    }
+
+    .generarColumnas('', 6);
+
+    // Media query para pantallas pequeñas
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column; // Cambia a columna en pantallas pequeñas
+        }
+        .generarColumnas('', 1); // Cada columna ocupa el 100% del ancho
+    }
+
+    // Media query para tabletas
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .generarColumnas('', 3); // 3 columnas en tabletas
+    }
+}
