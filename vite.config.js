@@ -15,7 +15,8 @@ const obtenerEntradaHtml = () => {
 };
 
 export default defineConfig({
-    appType: "mpa", // Configurar como Multi-Page Application
+    appType: "mpa", // Configurar como Multi-Page Applicatio
+    base: process.env.DEPLOY_BASE_URL,
     build: {
         rollupOptions: {
             input: obtenerEntradaHtml(),
