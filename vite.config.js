@@ -15,7 +15,7 @@ const obtenerEntradaHtml = () => {
 };
 
 export default defineConfig({
-    appType: "mpa", // Configurar como Multi-Page Applicatio
+    appType: "mpa", 
     base: process.env.DEPLOY_BASE_URL,
     build: {
         rollupOptions: {
@@ -31,8 +31,8 @@ export default defineConfig({
     },
     plugins: [
         htmlPurge({
-            content: ["./**/*.html", "./**/*.js"], // Analiza estos archivos en busca de clases CSS usadas
-            safelist: ["active", "show"], // Evita eliminar clases dinámicas
+            content: ["./**/*.html", "./**/*.js"], 
+            safelist: ["active", "show"], 
         })
     ]
 });

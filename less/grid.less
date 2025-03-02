@@ -28,16 +28,14 @@
 
     .generarColumnas('', 6);
 
-    // Media query para pantallas pequeñas
     @media (max-width: 768px) {
         .row {
-            flex-direction: column; // Cambia a columna en pantallas pequeñas
+            flex-direction: column; 
         }
-        .generarColumnas('', 1); // Cada columna ocupa el 100% del ancho
+        .generarColumnas('', 1); 
     }
 
-    // Media query para tabletas
     @media (min-width: 769px) and (max-width: 1024px) {
-        .generarColumnas('', 3); // 3 columnas en tabletas
+        .generarColumnas('', 3); 
     }
 }
